@@ -1,5 +1,5 @@
 {
-  "homepage":"http://nishantp22.github.io/secyrec/",
+  "homepage": "https://nishantp22.github.io/secyrec",
   "name": "secy",
   "version": "0.1.0",
   "private": false,
@@ -17,8 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run deploy",
+    "deploy" : "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
