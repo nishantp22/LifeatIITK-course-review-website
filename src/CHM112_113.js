@@ -12,7 +12,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import{Outlet, Link as LinkRouter} from 'react-router-dom';
+import{Link as LinkRouter} from 'react-router-dom';
 
 function Copyright() {
   return (
