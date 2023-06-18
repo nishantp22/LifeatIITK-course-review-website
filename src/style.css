@@ -1,0 +1,18 @@
+.form{
+    padding:10px;
+    margin-top: 10px;
+    border:none;
+    border-bottom: 1px solid;
+    resize: none;
+}
+button{
+    margin-top: 10px;
+    padding:10px;
+    background-color: #1976d2;
+    border:none;
+    color:white;    
+}
+button:hover{
+    cursor:pointer;
+    opacity:0.8;
+}
