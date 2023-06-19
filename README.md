@@ -7,7 +7,8 @@ There are various componants involved, which are:<br>
 1. App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>
 2. Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
 3. Mods.js and Lock.js : The Page specifically for moderators, which is accessed via Lock.js, a component which has the login interface for a moderator.
-4. Course components (eg: MTH111_112.js) : These are the pages for a particular course, where user can post reviews about the course. 
+4. Course components (eg: MTH111_112.js) : These are the pages for a particular course, where user can post reviews about the course.
+5. MUI Template used : https://mui.com/material-ui/getting-started/templates/album/
 
 ## Installation
 
