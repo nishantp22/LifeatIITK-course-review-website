@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a web application built using React, a popular JavaScript library for building user interfaces. It consists of various components that work together to create a seamless and interactive user experience.<br>
+This project is a web application built using React. I have choosen a template from MUI templates and have built the entire app over this template.
 There are various componants involved, which are:<br>
 1. App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>
 2. Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
