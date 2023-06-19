@@ -10,11 +10,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import{Link as LinkRouter} from 'react-router-dom';
+//We are using a template from MUI so importing the necessities.
 
-function Copyright() {
+function Copyright() {//a copyright function for footer, directly from MUI template
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -29,29 +29,14 @@ function Copyright() {
 
 
 const defaultTheme = createTheme();
-export default function MTH111_112() {
-  let reviewNo=1;
-  let [reviews,setReviews] =useState([{
-    ID:1,
-    Student:'Nishant Pandey',
-    Prof:'Anand Kumar Jha',
-    Year_and_Semester : '2022-23 2nd sem',
-    Grading_Pattern:"AK Jha's grading is decent",
-    WorkLoad:'4 quizzes,directly from weekly assignments, one midsem and one endsem',
-    Difficulty:'Easy to moderate',
-    Teaching_Style:"Prof has a really good sense of humour. You'll enjoy going to classes",
-    Satisfaction: 'Satisfied'
-  }]);
-  const [Name,setName]=useState('');
-  const [Prof,setProf]=useState('');
-  const [YearnSem,setYearnSem]=useState('');
-  const [Grading,setGrading]=useState('');
-  const [Workload,setWorkload]=useState('');
-  const [Difficulty,setDifficulty]=useState('');
-  const [Teaching,setTeaching]=useState('');
-  const [Satisfaction,setSatisfaction]=useState('');
+export default function PHY114({count,setCount,reviews,Name,Prof,YearnSem,Difficulty,Grading,Satisfaction,Teaching,
+  Workload,setDifficulty,setName,setProf,setYearnSem,setGrading,setWorkload,setSatisfaction,setTeaching,modList,setModList}) {
+  // the arguments in the function PHY114 are the various props that we are accepting.
   
-  function handleName(event){
+  /* The below 7 functions are for handling the input provided
+  by the user. We are storing the input provided by user in
+  the states we declared in App.js and passed as props  */
+    function handleName(event){
     setName(event.target.value);
   }
   function handleProf(event){
@@ -75,10 +60,19 @@ export default function MTH111_112() {
   function handleSatisfaction(event){
     setSatisfaction(event.target.value);
   }
+  
+  /* The function AddReview will add a review in the 
+  moderator list and give an alert, that the review has been
+  sent to moderators for moderation */
   function AddReview(){
-    setReviews(()=>{
-      return [...reviews,{
-          ID:reviewNo,
+    /*We are creating a new review and assigning all the
+    parameters accorting to the current values stored in the
+    states(this function is called when the user clicls the 
+      button add review) */    
+    setModList(()=>{
+      return [...modList,{
+          key:count,
+          ID:5,
           Student:Name,
           Prof:Prof,
           Grading_Pattern:Grading,
@@ -89,6 +83,7 @@ export default function MTH111_112() {
         }
       ]
     })
+    //setting the states to empty fields after adding a review    
     setName('');
     setProf('');
     setYearnSem('');
@@ -97,13 +92,17 @@ export default function MTH111_112() {
     setWorkload('');
     setTeaching('');
     setSatisfaction('');
+    setCount(count+1);
+    window.alert("Sent for Approval from Moderators!");
   }
   
   return (
+    //here some of the code is provided by the MUI template
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
+             {/* {link for homepage} */}
         <LinkRouter  style={{textDecoration:'none',color:'white',fontSize:'20px'}} to="/">Home</LinkRouter>
         </Toolbar>
       </AppBar>
@@ -139,8 +138,10 @@ export default function MTH111_112() {
         </Box>
         <Container sx={{ py: 8 }}>
           <Grid container spacing={4}>
+          {/* {creating a map for all the elements in the PHY114 reviews list,
+            to fetch all the approved reviews} */}
             {reviews.map((review) => (
-              <Grid item key={review.ID} xs={12} sm={6} md={16}>
+              <Grid item key={review.key} xs={12} sm={6} md={16}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -177,6 +178,10 @@ export default function MTH111_112() {
           <Typography variant='h5' style={{marginTop:'40px', display:'flex', justifyContent:'center'}}>
             Add A Review
           </Typography>
+          {/* {below div is a form where user can add a review.
+          It has various fields and an add review button.
+          These entities, when changed(or clicked), will call
+          respecive functions} */}
           <div style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
             <input value={Name} onChange={handleName}className="form" id="Name" placeholder='Name'></input>
             <input value={Prof} onChange={handleProf} className="form" id="Prof" placeholder='Instructor'></input>
