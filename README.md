@@ -19,7 +19,7 @@ There are various componants involved, which are:<br>
 
 1. Start the development server: `npm start`
 2. Open your browser and visit: `http://localhost:3000`
-3. <b>The built web application is deployed at "https://lifeatiitk.netlify.app"
+3. <b>The built web application is deployed at "https://lifeatiitk.netlify.app"<b>
 4. For accessing the moderator interface, the username is : futuresecy, and the password is : pclubsecy
 
 ## Approach
