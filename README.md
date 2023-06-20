@@ -34,6 +34,3 @@ MUI Template used : https://mui.com/material-ui/getting-started/templates/album/
 - Finally, for each course, the state(array) of reviews basically contains all the approved reviews. These are then displayed using the .map() function in JS
 
 
-## Contact
-
-For any queries or feedback, please contact Nishant Pandey at +91-9958784468 or at nishantp22@iitk.ac.in.
