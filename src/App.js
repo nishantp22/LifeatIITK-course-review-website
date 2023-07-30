@@ -2,7 +2,9 @@ import Home from "./Home";
 import Mods from "./Mods";
 import Reviews from "./Reviews";
 import Lock from "./lock";
+import data from "./courses.json"
 import "./style.css";
+
 import { useState, useEffect } from "react";
 import {
   BrowserRouter,
@@ -12,17 +14,17 @@ import {
 
 function App() {
 let [modList,setModList]=useState([]);    //list of all the reviews pending for approval from moderator
-const [courses,setCourses]=useState(null);
+const [courses,setCourses]=useState(data.courses);
 
-useEffect(()=>{
-  fetch("http://localhost:8000/courses")
-  .then(res=>{
-    return res.json();
-  })
-  .then(data=>{
-    setCourses(data);
-  })
-},[])
+// useEffect(()=>{
+//   fetch("http://localhost:8000/courses")
+//   .then(res=>{
+//     return res.json();
+//   })
+//   .then(data=>{
+//     setCourses(data);
+//   })
+// },[])
 let [reviewCount,setReviewCount]=useState(6);
   
   return (
