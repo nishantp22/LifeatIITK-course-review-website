@@ -1,4 +1,4 @@
-# Life@IITK : PCLub Secy Recruitment Task 6
+# Life@IITK : Course Review Website
 
 ## Description
 
