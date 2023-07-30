@@ -45,7 +45,7 @@ export default function Lock() {
         setPass(event.target.value);
     }
     const validate=()=>{  //function to validate username and pass
-        if(name==="futuresecy"&&pass==="pclubsecy"){
+        if(name==="pclubsecy"&&pass==="pclubsecy"){
           //if username and password are correct, route to Mods page  
           navigate('/Mods');
         }

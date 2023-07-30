@@ -1,0 +1,133 @@
+    {
+        "courses":[
+            {
+                "name":"MTH113/114",
+                "title":"Linear Algebra and Ordinary Differential Equations",
+                "description":"Atleast It's Better than MTH111.",
+                "image":"https://www.engineer4free.com/uploads/1/0/2/9/10296972/3295580_orig.jpg",
+                "key":1,
+                "reviews":[
+                    {
+                        "key":1,
+                        "ID":1,
+                        "Student":"Nishant Pandey",  
+                        "Prof":"Pooja Singla/ T Muthukumar",
+                        "Year_and_Semester": "2022-23 2nd sem",
+                        "Grading_Pattern":"As expected from an MTH Course",
+                        "WorkLoad":"Weekly assignments with 2 quizzes, one midsem and one endsem",
+                        "Difficulty":"Moderate. But definitely easier than MTH111/112",
+                        "Teaching_Style":"Both of them are very enthusiastic profs. They Put their heart in teaching",
+                        "Satisfaction": "Satisfied"
+                    }
+                ]
+            },
+            {
+                "name":"PHY114",
+                "title":"Quantum Physics",
+                "description":"Schrodinger's Cat is our Spirit Animal.",
+                "image":"https://assets.newatlas.com/dims4/default/4cfea82/2147483647/strip/true/crop/864x576+80+0/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fso-you-think-youre-confused-about-quantum-mechanics-9.jpg",
+                "key":2,
+                "reviews":[
+                    {
+                        "key":2,
+                        "ID":2,
+                        "Student":"Nishant Pandey",
+                        "Prof":"Anand Kumar Jha",
+                        "Year_and_Semester": "2022-23 2nd sem",
+                        "Grading_Pattern":"AK Jha's grading is decent",
+                        "WorkLoad":"4 quizzes,directly from weekly assignments, one midsem and one endsem",
+                        "Difficulty":"Easy to moderate",
+                        "Teaching_Style":"Prof has a really good sense of humour. You'll enjoy going to classes",
+                        "Satisfaction": "Satisfied"
+                    }
+                ]
+            },
+            {
+                "name":"ESC111/112",
+                "title":"Fundamentals Of Computing",
+                "description":"The Single Most Useful Course in the 1st Year.",
+                "image":"data:image/jpeg;base64,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",
+                "key":3,
+                "reviews":[
+                    {
+                        "key":3,
+                        "ID":3,
+                        "Student":"Nishant Pandey",
+                        "Prof":"Nisheeth Srivastava/ Anil Seth",
+                        "Year_and_Semester" : "2022-23 1st sem",
+                        "Grading_Pattern":"B-C centric. 18 got an A* and 59 got an A in 112.",
+                        "WorkLoad":"Weekly quizzes, one midsem and one endsem",
+                        "Difficulty":"Moderate. But requires regular practice",
+                        "Teaching_Style":"Both of them are decent",
+                        "Satisfaction": "Satisfied"
+                    }
+                ]
+            },
+            {
+                "name":"MTH111/112",
+                "title":"Single and Multivariable Calculus",
+                "description":"Yes, I too missed JEE math during this course.",
+                "image":"https://www.mindingthecampus.org/wp-content/uploads/2023/03/calculusfear-1.png",
+                "key":4,
+                "reviews":[
+                    {
+                        "key":4,
+                        "ID":4,
+                        "Student":"Nishant Pandey",
+                        "Prof":"Arijit Ganguly/ Kaushik Bal",
+                        "Year_and_Semester ": "2022-23 1st sem",
+                        "Grading_Pattern":"Only 3 out of 1200 got an A. Majorly C centric",
+                        "WorkLoad":"Weekly assignments with 2 quizzes, one midsem and one endsem",
+                        "Difficulty":"Moderate. Although you may find the process of rigorous proof writing a bit boring",
+                        "Teaching_Style":"Arijit : Who let him become a prof? Kaushik Bal : Very enthusiastic prof. Puts his heart in teaching",
+                        "Satisfaction": "MTH111: Not satisfied. MTH112: Somewhat satisfied"
+                    }
+                ]
+            },
+            {
+                "name":"TA111",
+                "title":"Engineering Graphics",
+                "description":"Somebody Tell these Folks about AutoCad.",
+                "image":"https://fractory.com/wp-content/uploads/2020/06/14592303718_f07a940a06_c-1.jpg",
+                "key":5,
+                "reviews":[
+                    {
+                        "key":5,
+                        "ID":5,
+                        "Student":"Nishant Pandey",
+                        "Prof":"Salil Goel",
+                        "Year_and_Semester" : "2022-23 2nd sem",
+                        "Grading_Pattern":"Can't Comment as course is not complete yet",
+                        "WorkLoad":"Weekly Labs and Home Assignments, one midsem and one endsem",
+                        "Difficulty":"Moderate",
+                        "Teaching_Style":"Can't comment about anything other than that it's an IC course, so you have to complete it somehow",
+                        "Satisfaction": "Not yet"
+                    }
+                ]
+            },
+            {
+                "name":"CHM112/113",
+                "title":"General Chemisty",
+                "description":"Mind your Silly Mistakes.",
+                "image":"https://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/",
+                "key":6,
+                "reviews":[
+                    {
+                        "key":6,
+                        "ID":6,
+                        "Student":"Nishant Pandey",
+                        "Prof":"Madhav Ranganathan/ Pratik sen/ Appu/ Parthas",
+                        "Year_and_Semester" : "2022-23 2nd sem",
+                        "Grading_Pattern":"Can't Comment as course is not complete yet",
+                        "WorkLoad":"Weekly Assignments, one midsem and one endsem",
+                        "Difficulty":"Moderate. Assignments are easy but quizzes and midsem/endsem are deadly",
+                        "Teaching_Style":"All of them are decent enough",
+                        "Satisfaction": "Yep"
+                    }
+                ]
+            }
+        ]
+    }
+
+
+      

@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import{Link as LinkRouter} from 'react-router-dom';
+import { useState } from 'react';
+import{useNavigate,Link as LinkRouter,useLocation} from 'react-router-dom';
 //We are using a template from MUI so importing the necessities.
 
 function Copyright() {//a copyright function for footer, directly from MUI template
@@ -29,74 +30,51 @@ function Copyright() {//a copyright function for footer, directly from MUI templ
 
 
 const defaultTheme = createTheme();
-export default function ESC111_112({count,setCount,reviews,Name,Prof,YearnSem,Difficulty,Grading,Satisfaction,Teaching,
-  Workload,setDifficulty,setName,setProf,setYearnSem,setGrading,setWorkload,setSatisfaction,setTeaching,modList,setModList}) {
-    // the arguments in the function ESC111_112 are the various props that we are accepting.
-
-   /* The below 7 functions are for handling the input provided
+export default function Reviews({reviewCount,setReviewCount,modList,setModList}) {
+  const location=useLocation();
+  const course=location.state;
+  const [name,setName]=useState('');
+  const [prof,setProf]=useState('');
+  const [year,setYear]=useState('');
+  const [workload,setWorkload]=useState('');
+  const [grading,setGrading]=useState('');
+  const [difficulty,setDifficulty]=useState('');
+  const [teaching,setTeaching]=useState('');
+  const [satisfaction,setSatisfaction]=useState('');
+  
+  /* The below 7 functions are for handling the input provided
   by the user. We are storing the input provided by user in
   the states we declared in App.js and passed as props  */
-
-  function handleName(event){
-    setName(event.target.value);
-  }
-  function handleProf(event){
-    setProf(event.target.value);
-  }
-  function handleYearnSem(event){
-    setYearnSem(event.target.value);
-  }
-  function handleGrading(event){
-    setGrading(event.target.value);
-  }
-  function handleWorkload(event){
-    setWorkload(event.target.value);
-  }
-  function handleDifficulty(event){
-    setDifficulty(event.target.value);
-  }
-  function handleTeaching(event){
-    setTeaching(event.target.value);
-  }
-  function handleSatisfaction(event){
-    setSatisfaction(event.target.value);
-  }
-
-  /* The function AddReview will add a review in the 
-  moderator list and give an alert, that the review has been
-  sent to moderators for moderation */  
-  function AddReview(){
-    /*We are creating a new review and assigning all the
-    parameters accorting to the current values stored in the
-    states(this function is called when the user clicls the 
-      button add review) */
-    setModList(()=>{
-      return [...modList,{
-          key:count,
-          ID:3,
-          Student:Name,
-          Prof:Prof,
-          Grading_Pattern:Grading,
-          WorkLoad:Workload,
-          Difficulty:Difficulty,
-          Teaching_Style:Teaching,
-          Satisfaction:Satisfaction,
-        }
-      ]
-    })
-    //setting the states to empty fields after adding a review
-    setName('');
-    setProf('');
-    setYearnSem('');
-    setGrading('');
-    setDifficulty('');
-    setWorkload('');
-    setTeaching('');
-    setSatisfaction('');
-    setCount(count+1);
-    window.alert("Sent for Approval from Moderators!");
-  }
+  function handleName(event) {setName(event.target.value);}
+  function handleProf(event){setProf(event.target.value);}
+  function handleYearnSem(event){setYear(event.target.value);}
+  function handleGrading(event){setGrading(event.target.value);}
+  function handleWorkload(event){setWorkload(event.target.value);}
+  function handleDifficulty(event){setDifficulty(event.target.value);}
+  function handleTeaching(event){setTeaching(event.target.value);}
+  function handleSatisfaction(event){setSatisfaction(event.target.value);}
   
+  function AddReview(){
+    const review={
+      "key":course.key,
+      "ID":reviewCount+1,
+      "Student":name,  
+      "Prof":prof,
+      "Year_and_Semester": year,
+      "Grading_Pattern":grading,
+      "WorkLoad":workload,
+      "Difficulty":difficulty,
+      "Teaching_Style":teaching,
+      "Satisfaction":satisfaction
+    }
+    setModList(()=>{return [...modList,review]})
+    //   //setting the states to empty fields after adding a review
+    setName(''); setProf(''); setYear(''); setGrading(''); setDifficulty(''); setWorkload(''); setTeaching(''); setSatisfaction('');
+    window.alert("Sent for Approval from Moderators!");
+    const newReviewCount=reviewCount+1;
+    setReviewCount(newReviewCount);
+  }
+
   return (
      //here some of the code is provided by the MUI template
     <ThemeProvider theme={defaultTheme}>
@@ -124,10 +102,10 @@ export default function ESC111_112({count,setCount,reviews,Name,Prof,YearnSem,Di
               color="text.primary"
               gutterBottom
             >
-              ESC111/112
+              {course.name}
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              The single most useful 1st year course.
+              {course.description}
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -140,10 +118,10 @@ export default function ESC111_112({count,setCount,reviews,Name,Prof,YearnSem,Di
         </Box>
         <Container sx={{ py: 8 }}>
           <Grid container spacing={4}>
-            {/* {creating a map for all the elements in the ESC111/112 
-            reviews list, to fetch all the approved reviews} */}
-            {reviews.map((review) => (
-              <Grid item key={review.key} xs={12} sm={6} md={16}>
+            {/* {creating a map for all the elements in the MTH111/112 reviews list,
+             to fetch all the approved reviews} */}
+            {course.reviews.map((review) => (
+              <Grid item key={review.ID} xs={12} sm={6} md={16}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -183,16 +161,16 @@ export default function ESC111_112({count,setCount,reviews,Name,Prof,YearnSem,Di
           {/* {below div is a form where user can add a review.
           It has various fields and an add review button.
           These entities, when changed(or clicked), will call
-          respecive functions} */}          
+          respecive functions} */}
           <div style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
-            <input value={Name} onChange={handleName}className="form" id="Name" placeholder='Name'></input>
-            <input value={Prof} onChange={handleProf} className="form" id="Prof" placeholder='Instructor'></input>
-            <input value={YearnSem} onChange={handleYearnSem} className="form" id="Prof" placeholder='Year and Semester'></input>
-            <input value={Workload}onChange={handleWorkload} className="form" id="Workload" placeholder='Workload Description'></input>
-            <input value={Difficulty} onChange={handleDifficulty} className="form" id="Difficulty" placeholder='Difficulty Level'></input>
-            <input value={Grading} onChange={handleGrading} className="form" id="Grading" placeholder='Grading Pattern'></input>
-            <input value={Teaching} onChange={handleTeaching} className="form" id="Teaching_style" placeholder='Teaching Style of Instructor'></input>
-            <input value={Satisfaction}onChange={handleSatisfaction} className="form" id="Satisfaction" placeholder='Overall Satisfaction'></input>
+            <input value={name} onChange={handleName}className="form" id="Name" placeholder='Name'></input>
+            <input value={prof} onChange={handleProf} className="form" id="Prof" placeholder='Instructor'></input>
+            <input value={year} onChange={handleYearnSem} className="form" id="Prof" placeholder='Year and Semester'></input>
+            <input value={workload}onChange={handleWorkload} className="form" id="Workload" placeholder='Workload Description'></input>
+            <input value={difficulty} onChange={handleDifficulty} className="form" id="Difficulty" placeholder='Difficulty Level'></input>
+            <input value={grading} onChange={handleGrading} className="form" id="Grading" placeholder='Grading Pattern'></input>
+            <input value={teaching} onChange={handleTeaching} className="form" id="Teaching_style" placeholder='Teaching Style of Instructor'></input>
+            <input value={satisfaction}onChange={handleSatisfaction} className="form" id="Satisfaction" placeholder='Overall Satisfaction'></input>
             <button onClick={AddReview}>Add Review</button>
           </div>
         </Container>

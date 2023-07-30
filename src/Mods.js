@@ -30,54 +30,18 @@ function Copyright() {    //a copyright function for footer, directly from MUI t
 
 
 const defaultTheme = createTheme();
-export default function Mods({modList,setModList,reviewsMTH111_112,setReviewsMTH111_112,reviewsMTH113_114,setReviewsMTH113_114
-,reviewsESC111_112,setReviewsESC111_112,reviewsTA111,setReviewsTA111,reviewsPHY114,setReviewsPHY114,reviewsCHM112_113,setReviewsCHM112_113}) {
+export default function Mods({modList,setModList,data,setCourses}) {
 // the arguments in the function Mods are the various props that we are accepting.
   
 function approveReview(review){ //the function to approve a review when a moderator decides
-    switch(review.ID){  //each course has an id(MTH111/112 has 1, MTH113/114 has 2 and so on)
-        case 1: 
-            setReviewsMTH111_112(()=>{
-                return [...reviewsMTH111_112,review]; 
-                //this syntax takes the original state(array) and appends a new review at the end of it
-                //so we are appending the review under moderation, at the end of the respecive course's review list
-            })
-            break;
-        case 2:
-            setReviewsMTH113_114(()=>{
-                return [...reviewsMTH113_114,review];
-            })
-            break;
-        case 3:
-            setReviewsESC111_112(()=>{
-                return [...reviewsESC111_112,review];
-            })
-            break;
-        case 4:
-            setReviewsTA111(()=>{
-                return [...reviewsTA111,review];
-            })
-            break;
-        case 5:
-            setReviewsPHY114(()=>{
-                return [...reviewsPHY114,review];
-            })
-            break;
-        case 6:
-            setReviewsCHM112_113(()=>{
-                return [...reviewsCHM112_113,review];
-            })
-            break;
-        default:
-                break;
-            }
-        setModList((modList)=>modList.filter((r)=>r.key!==review.key))// removing this review from moderator list 
-        window.alert("Approved Sucessfully!");
+    data[review.key-1].reviews.push(review); //adding review to 
+    setCourses(data);
+    setModList((modList)=>modList.filter((r)=>r.ID!==review.ID))// removing this review from moderator list 
+    window.alert("Approved Sucessfully!");
     }
-    function rejectReview(review){
-        setModList((modList)=>modList.filter((r)=>r.key!==review.key))
-        //if review is to be rejected, simply remove it from moderator list
-        window.alert("Rejected Sucessfully!");
+function rejectReview(review){
+    setModList((modList)=>modList.filter((r)=>r.ID!==review.ID))
+    window.alert("Rejected Sucessfully!"); //if review is to be rejected, simply remove it from moderator list
 }
   
   return (

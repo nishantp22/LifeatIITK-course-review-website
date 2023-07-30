@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import{Link as LinkRouter} from 'react-router-dom';
+import{useNavigate,Link as LinkRouter} from 'react-router-dom';
 //We are using an MUI template, hence importing the necessary requirements
 
 function Copyright() {//a copyright function for footer, directly from MUI template
@@ -31,54 +31,16 @@ function Copyright() {//a copyright function for footer, directly from MUI templ
 }
 
 /* Below is an array containing information for cards fo various courses*/
-let courses=[ 
-    { 
-        ID:1,
-        Name:"MTH111/112",
-        Image:require('./img/MTH111112.jpg'),
-        Description:"Single and Multivariable Calculus",
-        Link:"/MTH111_112"
-      },
-      {
-        ID:2,
-        Name:"MTH113/114",
-        Image:require('./img/MTH113114.jpg'),
-        Description:"Linear Algebra and Ordinary Differential Equations",
-        Link:"/MTH113_114"
-      },
-      {
-        ID:3,
-        Name:"ESC111/112",
-        Image:require('./img/ESC111112.jpg'),
-        Description:"Fundamentals Of Computing",
-        Link:"/ESC111_112"
-      },
-      {
-        ID:4,
-        Name:"TA111",
-        Image:require('./img/TA111.jpg'),
-        Description:"Engineering Graphics",
-        Link:"/TA111"
-      },
-      {
-        ID:5,
-        Name:"PHY114",
-        Image:require('./img/PHY114.jpg'),
-        Description:"Quantum Physics",
-        Link:"/PHY114"
-      },
-      {
-        ID:6,
-        Name:"CHM112/113",
-        Image:require('./img/CHM111112.jpg'),
-        Description:"General Chemisty",
-        Link:"/CHM112_113"
-    }
-];
 
 const defaultTheme = createTheme();
 
-export default function Home() {
+export default function Home(data) {
+  const courses=data.data;
+  const navigate=useNavigate();
+  function transfer(id){
+    navigate('/Reviews',{state:courses[id-1]});
+    window.scrollTo(0, 0);
+  }
   //here some code is provided by the MUI template
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -127,7 +89,7 @@ export default function Home() {
              {/* {creating a map for all the courses,
              these courses will be displayed, along with an option to view all the reviews} */}
             {courses.map((course) => (
-              <Grid item key={course.ID} xs={12} sm={6} md={4}>
+              <Grid item key={course.key} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -137,18 +99,18 @@ export default function Home() {
                       // 16:9
                       pt: '56.25%',
                     }}
-                    image={course.Image}
+                    image={course.image}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography style={{display:'flex',justifyContent:'center'}}gutterBottom variant="h5" component="h2">
-                      {course.Name}
+                      {course.name}
                     </Typography>
-                    <Typography style={{display:'flex',justifyContent:'center'}}>
-                      {course.Description}
+                    <Typography style={{textAlign:'center'}}>
+                      {course.title}
                     </Typography>
                   </CardContent>
                   <CardActions style={{ display: 'flex', justifyContent: 'center', textDecoration:'none' }}>
-                    <Button size="small"><LinkRouter style={{textDecoration:'none',color:'black'}} to={course.Link}>View Reviews</LinkRouter></Button>
+                    <Button onClick={()=>transfer(course.key)} id={course.key} size="small" style={{textDecoration:'none',color:'black'}}>View Reviews</Button>
                   </CardActions>
                 </Card>
               </Grid>
