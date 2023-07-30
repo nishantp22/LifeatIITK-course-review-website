@@ -21,7 +21,7 @@ There are various componants involved, which are:<br>
 - Start the development server: `npm start`
 - Open your browser and visit: `http://localhost:3000`
 - <b>The built web application is deployed at "https://lifeatiitk.netlify.app"</b>
-- For accessing the moderator interface, the username is : futuresecy, and the password is : pclubsecy
+- For accessing the moderator interface, the username is : pclubsecy, and the password is : pclubsecy
 
 ## Approach
 - The key idea is to create states(arrays) which will dynamically store any review object based on the inputs provided by the user.
