@@ -4,24 +4,24 @@
 
 This project is a web application built using React. I have choosen a template from MUI templates and have built the entire app over this template.
 There are various componants involved, which are:<br>
-1. App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>
-2. Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
-3. Mods.js and Lock.js : The Page specifically for moderators, which is accessed via Lock.js, a component which has the login interface for a moderator.
-4. Course components (eg: MTH111_112.js) : These are the pages for a particular course, where user can post reviews about the course.
-5. There is also a style.css which is used to style elements that are not in the template<br><br>
+- App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>- Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
+- Mods.js and Lock.js : The Page specifically for moderators, which is accessed via Lock.js, a component which has the login interface for a moderator.
+- Course components (eg: MTH111_112.js) : These are the pages for a particular course, where user can post reviews about the course.
+- There is also a style.css which is used to style elements that are not in the template<br><br>
 
 ## Installation
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd <project-folder>`
-3. Install dependencies: `npm install`
+- Clone the repository: `git clone <repository-url>`
+-  Navigate to the project directory: `cd <project-folder>`
+-  Install dependencies: `npm install`
 
 ## Usage
 
-1. Start the development server: `npm start`
-2. Open your browser and visit: `http://localhost:3000`
-3. <b>The built web application is deployed at "https://lifeatiitk.netlify.app"</b>
-4. For accessing the moderator interface, the username is : futuresecy, and the password is : pclubsecy
+- Start the json server to fetch the data for already registered reviews by `npm json-server --watch public/data/courses.json --port 8000`
+- Start the development server: `npm start`
+- Open your browser and visit: `http://localhost:3000`
+- <b>The built web application is deployed at "https://lifeatiitk.netlify.app"</b>
+- For accessing the moderator interface, the username is : futuresecy, and the password is : pclubsecy
 
 ## Approach
 - The key idea is to create states(arrays) which will dynamically store any review object based on the inputs provided by the user.
