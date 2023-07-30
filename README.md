@@ -6,7 +6,7 @@ This project is a web application built using React. I have choosen a template f
 There are various componants involved, which are:<br>
 - App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>- Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
 - Mods.js and Lock.js : The Page specifically for moderators, which is accessed via Lock.js, a component which has the login interface for a moderator.
-- Course components (eg: MTH111_112.js) : These are the pages for a particular course, where user can post reviews about the course.
+- Review.js : This is where the reviews for a particular course are displayed, where user can also post reviews about the course.
 - There is also a style.css which is used to style elements that are not in the template<br><br>
 
 ## Installation
