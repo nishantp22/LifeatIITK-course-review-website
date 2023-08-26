@@ -20,5 +20,9 @@ This project is a web application where IITK students can post reviews about var
 - Start the backend server to use the Express API : `node api.js`
 - In a different terminal, start the react frontend development server: `npm start`
 - Open your browser and visit: `http://localhost:3000`
-- All the reviews are stored in MongoDB Atlas Cloud Database. We are accessing it via the URL.
+- All the reviews are stored in MongoDB Atlas Cloud Database. We are accessing it via the URL from the MongoDB Atlas Cluster.
 - For accessing the moderator interface, the username is : <b>pclubsecy</b>, and the password is : <b>pclubsecy</b>
+
+## Contribute
+
+We welcome contributions from the community to improve and expand the Pingala Timetable Chrome Extension. If you're a developer and would like to contribute, please fork our repository on GitHub and submit pull requests.
