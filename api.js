@@ -2,7 +2,7 @@ const express=require("express")
 const app=express()
 const bodyParser=require("body-parser")
 const mongoose=require("mongoose")
-const port=3000
+const port=4000
 const cors = require('cors');
 
 mongoose.connect("mongodb+srv://nishantpandey3910:Nishant!!!!@cluster0.xejetfu.mongodb.net/lifeatiitk")
