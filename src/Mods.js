@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import{Link as LinkRouter} from 'react-router-dom';
+import axios from 'axios';
 //We are using a template from MUI so importing the necessities.
 
 function Copyright() {    //a copyright function for footer, directly from MUI template
@@ -33,15 +34,29 @@ const defaultTheme = createTheme();
 export default function Mods({modList,setModList,data,setCourses}) {
 // the arguments in the function Mods are the various props that we are accepting.
   
-function approveReview(review){ //the function to approve a review when a moderator decides
-    data[review.key-1].reviews.push(review); //adding review to 
-    setCourses(data);
-    setModList((modList)=>modList.filter((r)=>r.ID!==review.ID))// removing this review from moderator list 
+async function approveReview(review){ 
+  // const response=await axios
+  try {
+    const response1 = await axios.post(`http://localhost:3000/approveReview`,review);
+    console.log(response1.data);
+    const response2 = await axios.delete(`http://localhost:3000/rejectReview?ID=${review._id}`);
+    console.log(response2.data);
+    window.location.reload(); // This can be improved by updating the state instead of a full page reload
     window.alert("Approved Sucessfully!");
-    }
-function rejectReview(review){
-    setModList((modList)=>modList.filter((r)=>r.ID!==review.ID))
-    window.alert("Rejected Sucessfully!"); //if review is to be rejected, simply remove it from moderator list
+  } catch (error) {
+    console.error("Error approving review:", error);
+  }
+                  
+}
+async function rejectReview(review){
+  try {
+    const response = await axios.delete(`http://localhost:3000/rejectReview?ID=${review._id}`);
+    console.log(response.data);
+    window.alert("Rejected Successfully!");
+    window.location.reload(); // This can be improved by updating the state instead of a full page reload
+  } catch (error) {
+    console.error("Error rejecting review:", error);
+  }
 }
   
   return (

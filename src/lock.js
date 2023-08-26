@@ -100,11 +100,11 @@ export default function Lock() {
         <Container style={{marginBottom:'20px'}} maxWidth="xs">
           {/* {this container contains fields for username and password and a login button,
           with the desired event handling assigned} */}
-            <div style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
+            <form style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
             <input value={name} className="form" id="Name" onChange={handleName} placeholder='Username'></input>
-            <input value={pass} type="password"className="form" id="Name" onChange={handlePass} placeholder='Password'></input>
+            <input value={pass} type="password"className="form" id="pass" onChange={handlePass} placeholder='Password'></input>
             <button onClick={validate}>Login</button>
-            </div>
+            </form>
         </Container>
       </main>
       {/* {footer} */}

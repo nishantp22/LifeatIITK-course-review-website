@@ -12,7 +12,8 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import{useNavigate,Link as LinkRouter,useLocation} from 'react-router-dom';
+import{Link as LinkRouter,useLocation} from 'react-router-dom';
+import axios from 'axios';
 //We are using a template from MUI so importing the necessities.
 
 function Copyright() {//a copyright function for footer, directly from MUI template
@@ -67,12 +68,24 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
       "Teaching_Style":teaching,
       "Satisfaction":satisfaction
     }
-    setModList(()=>{return [...modList,review]})
+    console.log(review);
+    async function postReview(){
+      try {
+        const response = await axios.post('http://localhost:3000/submitReview', review);
+        console.log('Response:', response.data);
+        // Handle successful response
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error
+      }
+    }
+    postReview();
+    window.alert("Sent for Approval from Moderators!");
     //   //setting the states to empty fields after adding a review
     setName(''); setProf(''); setYear(''); setGrading(''); setDifficulty(''); setWorkload(''); setTeaching(''); setSatisfaction('');
-    window.alert("Sent for Approval from Moderators!");
     const newReviewCount=reviewCount+1;
     setReviewCount(newReviewCount);
+    window.location.reload();
   }
 
   return (
@@ -162,8 +175,8 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
           It has various fields and an add review button.
           These entities, when changed(or clicked), will call
           respecive functions} */}
-          <div style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
-            <input value={name} onChange={handleName}className="form" id="Name" placeholder='Name'></input>
+          <div maxWidth={16} style= {{display:"flex", justifyContent:"center",flexDirection:"column"}}>
+            <input  value={name} onChange={handleName}className="form" id="Name" placeholder='Name'></input>
             <input value={prof} onChange={handleProf} className="form" id="Prof" placeholder='Instructor'></input>
             <input value={year} onChange={handleYearnSem} className="form" id="Prof" placeholder='Year and Semester'></input>
             <input value={workload}onChange={handleWorkload} className="form" id="Workload" placeholder='Workload Description'></input>

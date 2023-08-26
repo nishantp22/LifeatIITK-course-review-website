@@ -1,0 +1,16 @@
+{
+    "reviews":[
+        {
+            "key":4,
+            "ID":7,
+            "Student":"Mufeed Amir",  
+            "Prof":"Arjit/Kaushik Bal",
+            "Year_and_Semester": "2022-23 2nd sem",
+            "Grading_Pattern":"Very Bad",
+            "WorkLoad":"Weekly assignments with 2 quizzes, one midsem and one endsem",
+            "Difficulty":"Death",
+            "Teaching_Style":"Bakhuda Yeh kaisa sawal hai?",
+            "Satisfaction": "Not Satisfied"
+            }
+        ]
+    }

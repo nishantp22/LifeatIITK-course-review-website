@@ -41,6 +41,7 @@ export default function Home(data) {
     navigate('/Reviews',{state:courses[id-1]});
     window.scrollTo(0, 0);
   }
+
   //here some code is provided by the MUI template
   return (
     <ThemeProvider theme={defaultTheme}>

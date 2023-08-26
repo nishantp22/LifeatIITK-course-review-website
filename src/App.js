@@ -2,8 +2,8 @@ import Home from "./Home";
 import Mods from "./Mods";
 import Reviews from "./Reviews";
 import Lock from "./lock";
-import data from "./courses.json"
 import "./style.css";
+import axios from "axios";
 
 import { useState, useEffect } from "react";
 import {
@@ -13,20 +13,45 @@ import {
 } from 'react-router-dom';
 
 function App() {
-let [modList,setModList]=useState([]);    //list of all the reviews pending for approval from moderator
-const [courses,setCourses]=useState(data.courses);
-
-// useEffect(()=>{
-//   fetch("http://localhost:8000/courses")
-//   .then(res=>{
-//     return res.json();
-//   })
-//   .then(data=>{
-//     setCourses(data);
-//   })
-// },[])
-let [reviewCount,setReviewCount]=useState(6);
   
+  
+  let [reviewCount,setReviewCount]=useState(6);
+  const[courses,setCourses]=useState();
+  const [modList,setModList]=useState([]);    //list of all the reviews pending for approval from moderator
+  const [loading1, setLoading1] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('http://localhost:3000/courses');
+        setCourses(response.data);
+        setLoading1(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('http://localhost:3000/modReviews');
+        setModList(response.data);
+        setLoading2(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
+
+  if(loading1||loading2) return (<p>Loading</p>)
   return (
     <div className="App">
      <BrowserRouter>
