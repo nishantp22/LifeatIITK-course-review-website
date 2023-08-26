@@ -2,34 +2,23 @@
 
 ## Description
 
-This project is a web application built using React. I have choosen a template from MUI templates and have built the entire app over this template.
-There are various componants involved, which are:<br>
-- App.js : The root component integrating the other sub-commponents and determining the overall structure.<br>- Home.js : The homepage component for the web application where all the courses are visible. User can access reviews of any particular course.
-- Mods.js and Lock.js : The Page specifically for moderators, which is accessed via Lock.js, a component which has the login interface for a moderator.
-- Review.js : This is where the reviews for a particular course are displayed, where user can also post reviews about the course.
-- There is also a style.css which is used to style elements that are not in the template<br><br>
+This project is a web application where IITK students can post reviews about various courses, and moderators can approve or reject reviews. It is built using the MERN stack : MongoDB, Express.js, React.js and Node.js.
+
+## Features
+
+- The users can view already posted reviews, and can post their own reviews about any course.
+- The moderators, with their credentials, can use the moderator interface, where they can approve or reject any review. For this purpose, two separate collections are maintained in the MongoDB database : courses (where the approved reviews are stored), and modreviews (where the reviews under moderation are stored).  
 
 ## Installation
 
 - Clone the repository: `git clone <repository-url>`
--  Navigate to the project directory: `cd <project-folder>`
--  Install dependencies: `npm install`
+- Navigate to the project directory: `cd <project-folder>`
+- Install dependencies: `npm install`
 
 ## Usage
 
-- Start the json server to fetch the data for already registered reviews by `npm json-server --watch public/data/courses.json --port 8000`
-- Start the development server: `npm start`
+- Start the backend server to use the Express API : `node api.js`
+- In a different terminal, start the react frontend development server: `npm start`
 - Open your browser and visit: `http://localhost:3000`
-- <b>The built web application is deployed at "https://lifeatiitk.netlify.app"</b>
-- For accessing the moderator interface, the username is : pclubsecy, and the password is : pclubsecy
-
-## Approach
-- The key idea is to create states(arrays) which will dynamically store any review object based on the inputs provided by the user.
-- There are states(arrays) of reviews of each course and a master array for reviews under moderation(modList).
-- Whenever a user submits a review, it is added to the modList array.
-- In the moderator interface, all the reviews in the modList array are fetched using .map() method in JS. The moderator can then choose to approve or reject any review. Do note that a username and password is required to access the moderator interface.
-- If the review is approved, it is added to the state(array) of reviews of that particular course and is removed from the modList array.
-- If the review is rejected, it is removed from the modList array
-- Finally, for each course, the state(array) of reviews basically contains all the approved reviews. These are then displayed using the .map() function in JS
-
-
+- All the reviews are stored in MongoDB Atlas Cloud Database. We are accessing it via the URL.
+- For accessing the moderator interface, the username is : <b>pclubsecy</b>, and the password is : <b>pclubsecy</b>
