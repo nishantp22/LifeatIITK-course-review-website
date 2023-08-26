@@ -19,7 +19,7 @@ This project is a web application where IITK students can post reviews about var
 
 - Start the backend server to use the Express API : `node api.js`
 - In a different terminal, start the react frontend development server: `npm start`
-- Open your browser and visit: `http://localhost:3000`
+- Open your browser and visit: `http://localhost:4000`
 - All the reviews are stored in MongoDB Atlas Cloud Database. We are accessing it via the URL from the MongoDB Atlas Cluster.
 - For accessing the moderator interface, the username is : <b>pclubsecy</b>, and the password is : <b>pclubsecy</b>
 
