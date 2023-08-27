@@ -1,32 +1,10 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import Footer from './Footer';
 import { useState } from 'react';
+import Navbar from './Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 //importing useNavigate hook as we want to route to a different page after logging in 
 import{useNavigate,Link as LinkRouter} from 'react-router-dom';
-//We are using a template from MUI so importing the necessities.
-
-
-function Copyright() {//a copyright function for footer, directly from MUI template
-    return (
-        <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/nishant-pandey-6b7196247/">
-        Nishant Pandey
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-const defaultTheme = createTheme();
 
 export default function Lock() {
     const navigate = useNavigate(); //for using useNavigate hook 
@@ -58,71 +36,22 @@ export default function Lock() {
     }
     return (
       /*here some of the code is provided by the MUI template,*/
-        <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          {/* {link for homepage} */}
-        <LinkRouter  style={{textDecoration:'none',color:'white',fontSize:'20px'}} to="/">Home</LinkRouter>
-        </Toolbar>
-      </AppBar>
       <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Please Login to Continue
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              No Rush.
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >   
-            </Stack>
-          </Container>
-        </Box>
-        <Container style={{marginBottom:'20px'}} maxWidth="xs">
+        <Navbar></Navbar>
+      <div class="PageHeading">
+              <p>Please Login To Continue</p>
+              <p id="smallHeading">No Rush</p>
+            </div>  
           {/* {this container contains fields for username and password and a login button,
           with the desired event handling assigned} */}
-            <form style={{ display:'flex', justifyContent:'center',flexDirection:'column'}} maxWidth={16}>
-            <input value={name} className="form" id="Name" onChange={handleName} placeholder='Username'></input>
-            <input value={pass} type="password"className="form" id="pass" onChange={handlePass} placeholder='Password'></input>
-            <button onClick={validate}>Login</button>
+          <div>
+            <form class="lock">
+            <input value={name} class="form" id="lockname" onChange={handleName} placeholder='Username'></input>
+            <input value={pass} type="password"class="form" id="lockpass" onChange={handlePass} placeholder='Password'></input>
+            <button type="submit" class="btn btn-primary" id="lock-btn" onClick={validate}>Login</button>
             </form>
-        </Container>
+          </div>
+          <Footer/>
       </main>
-      {/* {footer} */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-            Thanks :)
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Thanks again :)
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
-    </ThemeProvider>
   );
 }

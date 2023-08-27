@@ -2,7 +2,7 @@ import Home from "./Home";
 import Mods from "./Mods";
 import Reviews from "./Reviews";
 import Lock from "./lock";
-import "./style.css";
+// import "./style.css";
 import axios from "axios";
 
 import { useState, useEffect } from "react";
