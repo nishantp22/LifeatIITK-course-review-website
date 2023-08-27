@@ -2,9 +2,8 @@ import * as React from 'react';
 import Footer from './Footer';
 import { useState } from 'react';
 import Navbar from './Navbar';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 //importing useNavigate hook as we want to route to a different page after logging in 
-import{useNavigate,Link as LinkRouter} from 'react-router-dom';
+import{useNavigate} from 'react-router-dom';
 
 export default function Lock() {
     const navigate = useNavigate(); //for using useNavigate hook 
@@ -35,8 +34,7 @@ export default function Lock() {
         }
     }
     return (
-      /*here some of the code is provided by the MUI template,*/
-      <main>
+      <body>
         <Navbar></Navbar>
       <div class="PageHeading">
               <p>Please Login To Continue</p>
@@ -52,6 +50,6 @@ export default function Lock() {
             </form>
           </div>
           <Footer/>
-      </main>
+      </body>
   );
 }

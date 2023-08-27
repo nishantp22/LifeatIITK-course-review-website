@@ -2,22 +2,16 @@ import Home from "./Home";
 import Mods from "./Mods";
 import Reviews from "./Reviews";
 import Lock from "./lock";
-// import "./style.css";
 import axios from "axios";
-
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,                //importing these since we are trying to implement routing
-} from 'react-router-dom';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   
   
   let [reviewCount,setReviewCount]=useState(6);
   const[courses,setCourses]=useState();
-  const [modList,setModList]=useState([]);    //list of all the reviews pending for approval from moderator
+  const [modList,setModList]=useState([]);    
   const [loading1, setLoading1] = useState(true);
   const [loading2, setLoading2] = useState(true);
 
@@ -51,7 +45,7 @@ function App() {
 
 
 
-  if(loading1||loading2) return (<p style={{display:"flex",justifyContent:"center",fontFamily:"Arial",fontSize:"50px",alignItems:"center",height:"80vh"}}>Hold On...</p>)
+  if(loading1||loading2) return (<p style={{display:"flex",justifyContent:"center",fontSize:"50px",alignItems:"center",height:"95vh"}}>It's slow because it's free :)</p>)
   return (
     <div className="App">
      <BrowserRouter>

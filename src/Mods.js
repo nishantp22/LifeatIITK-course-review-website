@@ -1,18 +1,13 @@
 import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
-//We are using a template from MUI so importing the necessities.
 
 
-
-const defaultTheme = createTheme();
-export default function Mods({modList,setModList,data,setCourses}) {
+export default function Mods({modList}) {
 // the arguments in the function Mods are the various props that we are accepting.
   
 async function approveReview(review){ 
-  // const response=await axios
   try {
     const response1 = await axios.post(`https://lifeatiitk.onrender.com/approveReview`,review);
     console.log(response1.data);
@@ -37,7 +32,6 @@ async function rejectReview(review){
 }
   
   return (
-    //here some of the code is provided by the MUI template
     <body>
       <Navbar>
       </Navbar>
@@ -63,7 +57,6 @@ async function rejectReview(review){
                   </div>
                 </div>
                 </div>
-
             ))}
             </div>
         <Footer />

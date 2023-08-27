@@ -1,5 +1,13 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
+  const navigate=useNavigate();
+  function goToMods(){
+    navigate('/lock')
+  }
+  function goToHome(){
+    navigate('/')
+  }
     return ( 
     <nav class="navbar navbar-expand-lg" id='navBar'>
     <div class="container-fluid">
@@ -9,10 +17,10 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <p class="nav-link active" aria-current="page" onClick={goToHome}>Home</p>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/lock">For Moderators</a>
+          <p class="nav-link active" aria-current="page" onClick={goToMods}>For Moderators</p>
         </li>
       </ul>
     </div>

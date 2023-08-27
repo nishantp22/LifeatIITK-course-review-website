@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function Reviews({reviewCount,setReviewCount,modList,setModList}) {
+export default function Reviews({reviewCount,setReviewCount}) {
   const location=useLocation();
   const course=location.state;
   const [name,setName]=useState('');
@@ -46,16 +46,14 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
     async function postReview(){
       try {
         const response = await axios.post('https://lifeatiitk.onrender.com/submitReview', review);
-        console.log('Response:', response.data);
-        // Handle successful response
+        console.log('Response:', response.data); // Handle successful response
       } catch (error) {
-        console.error('Error:', error);
-        // Handle error
+        console.error('Error:', error); // Handle error
       }
     }
     postReview();
     window.alert("Sent for Approval from Moderators!");
-    //   //setting the states to empty fields after adding a review
+    //setting the states to empty fields after adding a review
     setName(''); setProf(''); setYear(''); setGrading(''); setDifficulty(''); setWorkload(''); setTeaching(''); setSatisfaction('');
     const newReviewCount=reviewCount+1;
     setReviewCount(newReviewCount);

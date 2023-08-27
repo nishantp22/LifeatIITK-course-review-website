@@ -54,7 +54,13 @@
     background-color: rgb(72, 97, 226);
 }
 .navbar-nav .nav-link.active{
-    color:white
+    color:white;
+    margin:auto;
+    /* margin-left: 5px; */
+}
+.navbar-nav .nav-link.active:hover{
+    color:white;
+    cursor: pointer;
 }
 .PageHeading{
     /* width:auto; */
