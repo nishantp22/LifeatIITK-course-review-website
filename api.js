@@ -31,7 +31,7 @@ const modreviewsSchema=new mongoose.Schema({
     Prof: String,
     Year_and_Semester: String,
     Grading_Pattern: String,
-    WorkLoad: String,
+    Workload: String,
     Difficulty: String,
     Teaching_Style: String,
     Satisfaction: String
@@ -65,7 +65,7 @@ app.post("/submitReview",(req,res)=>{
         Prof: req.body.Prof,
         Year_and_Semester: req.body.Year_and_Semester,
         Grading_Pattern: req.body.Grading_Pattern,
-        WorkLoad: req.body.Workload,
+        Workload: req.body.Workload,
         Difficulty: req.body.Difficulty,
         Teaching_Style: req.body.Teaching_Style,
         Satisfaction: req.body.Satisfaction
@@ -83,7 +83,7 @@ app.post("/approveReview",(req,res)=>{
         Prof: req.body.Prof,
         Year_and_Semester: req.body.Year_and_Semester,
         Grading_Pattern: req.body.Grading_Pattern,
-        WorkLoad: req.body.Workload,
+        Workload: req.body.Workload,
         Difficulty: req.body.Difficulty,
         Teaching_Style: req.body.Teaching_Style,
         Satisfaction: req.body.Satisfaction

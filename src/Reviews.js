@@ -63,7 +63,7 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
       "Prof":prof,
       "Year_and_Semester": year,
       "Grading_Pattern":grading,
-      "WorkLoad":workload,
+      "Workload":workload,
       "Difficulty":difficulty,
       "Teaching_Style":teaching,
       "Satisfaction":satisfaction
@@ -71,7 +71,7 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
     console.log(review);
     async function postReview(){
       try {
-        const response = await axios.post('http://localhost:3000/submitReview', review);
+        const response = await axios.post('https://lifeatiitk.onrender.com/submitReview', review);
         console.log('Response:', response.data);
         // Handle successful response
       } catch (error) {
@@ -149,7 +149,7 @@ export default function Reviews({reviewCount,setReviewCount,modList,setModList})
                       <b>Year and Semester : </b>{review.Year_and_Semester}
                     </Typography>
                     <Typography>
-                      <b>Workload Description : </b>{review.WorkLoad}
+                      <b>Workload Description : </b>{review.Workload}
                     </Typography>
                     <Typography>
                       <b>Difficulty Level : </b>{review.Difficulty}

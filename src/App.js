@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://localhost:3000/courses');
+        const response = await axios.get('https://lifeatiitk.onrender.com/courses');
         setCourses(response.data);
         setLoading1(false);
       } catch (error) {
@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://localhost:3000/modReviews');
+        const response = await axios.get('https://lifeatiitk.onrender.com/modReviews');
         setModList(response.data);
         setLoading2(false);
       } catch (error) {
@@ -51,7 +51,7 @@ function App() {
 
 
 
-  if(loading1||loading2) return (<p>Loading</p>)
+  if(loading1||loading2) return (<p style={{display:"flex",justifyContent:"center",fontFamily:"Arial",fontSize:"50px",alignItems:"center",height:"80vh"}}>Hold On...</p>)
   return (
     <div className="App">
      <BrowserRouter>

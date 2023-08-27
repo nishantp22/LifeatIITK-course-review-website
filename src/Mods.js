@@ -37,9 +37,9 @@ export default function Mods({modList,setModList,data,setCourses}) {
 async function approveReview(review){ 
   // const response=await axios
   try {
-    const response1 = await axios.post(`http://localhost:3000/approveReview`,review);
+    const response1 = await axios.post(`https://lifeatiitk.onrender.com/approveReview`,review);
     console.log(response1.data);
-    const response2 = await axios.delete(`http://localhost:3000/rejectReview?ID=${review._id}`);
+    const response2 = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
     console.log(response2.data);
     window.location.reload(); // This can be improved by updating the state instead of a full page reload
     window.alert("Approved Sucessfully!");
@@ -50,7 +50,7 @@ async function approveReview(review){
 }
 async function rejectReview(review){
   try {
-    const response = await axios.delete(`http://localhost:3000/rejectReview?ID=${review._id}`);
+    const response = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
     console.log(response.data);
     window.alert("Rejected Successfully!");
     window.location.reload(); // This can be improved by updating the state instead of a full page reload
@@ -117,7 +117,7 @@ async function rejectReview(review){
                       <b>Year and Semester : </b>{review.Year_and_Semester}
                     </Typography>
                     <Typography>
-                      <b>Workload Description : </b>{review.WorkLoad}
+                      <b>Workload Description : </b>{review.Workload}
                     </Typography>
                     <Typography>
                       <b>Difficulty Level : </b>{review.Difficulty}
