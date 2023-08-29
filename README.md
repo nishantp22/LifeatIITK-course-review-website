@@ -25,4 +25,4 @@ This project is a web application where IITK students can post reviews about var
 
 ## Contribute
 
-I welcome contributions from the community to improve and expand the Pingala Timetable Chrome Extension. If you're a developer and would like to contribute, please fork our repository on GitHub and submit pull requests.
+I welcome contributions from the community to improve and expand the project. If you're a developer and would like to contribute, please fork our repository on GitHub and submit pull requests.
