@@ -19,10 +19,11 @@ This project is a web application where IITK students can post reviews about var
 
 - Start the backend server to use the Express API : `node api.js`
 - In a different terminal, start the react frontend development server: `npm start`
-- Open your browser and visit: `http://localhost:4000`
+- Open your browser and visit: `http://localhost:4000`.
 - All the reviews are stored in MongoDB Atlas Cloud Database. We are accessing it via the URL from the MongoDB Atlas Cluster.
+- The fully build web app is deployed at https://lifeatiitk.netlify.app/
 - For accessing the moderator interface, the username is : <b>pclubsecy</b>, and the password is : <b>pclubsecy</b>
 
 ## Contribute
 
-I welcome contributions from the community to improve and expand the project. If you're a developer and would like to contribute, please fork my repository on GitHub and submit pull requests.
+I welcome contributions from the community to improve and expand the project. If you're a developer and would like to contribute, please fork our repository on GitHub and submit pull requests.
