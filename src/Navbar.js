@@ -9,7 +9,7 @@ const Navbar = () => {
     navigate('/')
   }
     return ( 
-    <nav class="navbar navbar-expand-lg" id='navBar'>
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style={{backgroundColor:"rgb(72, 97, 226)"}} id='navBar'>
     <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

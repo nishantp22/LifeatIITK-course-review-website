@@ -51,12 +51,11 @@
     font-size: 20px;
 }
 #navBar{
-    background-color: rgb(72, 97, 226);
+    /* background-color: rgb(72, 97, 226); */
 }
 .navbar-nav .nav-link.active{
     color:white;
     margin:auto;
-    /* margin-left: 5px; */
 }
 .navbar-nav .nav-link.active:hover{
     color:white;
@@ -146,6 +145,6 @@ a{
     margin-bottom:20px;
     margin-top: 0px;
 }
-.navbar-toggler-icon{
+/* .navbar-toggler-icon{
     color:white;
-}
+} */
