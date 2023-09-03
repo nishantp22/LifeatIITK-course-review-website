@@ -50,9 +50,7 @@
 .nav-link{
     font-size: 20px;
 }
-#navBar{
-    /* background-color: rgb(72, 97, 226); */
-}
+
 .navbar-nav .nav-link.active{
     color:white;
     margin:auto;

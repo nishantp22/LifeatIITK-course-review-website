@@ -3,13 +3,12 @@ import{useNavigate} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer'
 
-export default function Home(data){
-  const courses=data.data;
+export default function Home({courses}){
   const navigate=useNavigate();
   
   
 function transfer(id){
-    navigate('/Reviews',{state:courses[id-1]});
+    navigate('/Reviews',{state:(id)});
     window.scrollTo(0, 0);
   }
   

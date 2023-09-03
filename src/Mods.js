@@ -1,36 +1,73 @@
 import * as React from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
+import { useState,useEffect } from 'react';
 import Footer from './Footer';
+// import { useState,useEffect } from 'react';
 
+export default function Mods({courses,setCourses}) {
+  const [modList,setModList]=useState();
+  const [loading,setLoading]=useState(true);
+ 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('https://lifeatiitk.onrender.com/modReviews');
+        setModList(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
 
-export default function Mods({modList}) {
+    fetchData();
+  }, []);
 // the arguments in the function Mods are the various props that we are accepting.
   
-async function approveReview(review){ 
-  try {
-    const response1 = await axios.post(`https://lifeatiitk.onrender.com/approveReview`,review);
-    console.log(response1.data);
-    const response2 = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
-    console.log(response2.data);
-    window.location.reload(); // This can be improved by updating the state instead of a full page reload
-    window.alert("Approved Sucessfully!");
-  } catch (error) {
-    console.error("Error approving review:", error);
+function approveReview(review){
+  async function removeFromMods(){
+    try {
+      const response1 = await axios.post(`https://lifeatiitk.onrender.com/approveReview`,review);
+      console.log(response1.data);
+    } catch (error) {
+      console.error("Error approving review:", error);
+    } 
   }
-                  
-}
-async function rejectReview(review){
-  try {
-    const response = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
-    console.log(response.data);
-    window.alert("Rejected Successfully!");
-    window.location.reload(); // This can be improved by updating the state instead of a full page reload
-  } catch (error) {
-    console.error("Error rejecting review:", error);
+  async function addToReviews(){
+    try {
+      const response2 = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
+      console.log(response2.data);
+    } catch (error) {
+      console.error("Error approving review:", error);
+    }
   }
+  removeFromMods();
+  addToReviews();
+  const newCourses=courses.map((course)=>{
+    if(course.key===review.key){
+      return {...course,reviews:[...course.reviews,review]};
+    }
+    return course;
+  })
+  setCourses(newCourses);
+  setModList(modList.filter((r)=>r._id!==review._id));
+  window.alert("Approved Sucessfully!");                  
 }
-  
+
+function rejectReview(review){
+  async function removeFromMods(){
+    try {
+      const response = await axios.delete(`https://lifeatiitk.onrender.com/rejectReview?ID=${review._id}`);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error rejecting review:", error);
+    }
+  }
+  removeFromMods();
+  setModList(modList.filter((r)=>r._id!==review._id));
+  window.alert("Rejected Successfully!");
+}
+  if(loading) return (<p style={{display:"flex",justifyContent:"center",fontSize:"50px",alignItems:"center",height:"95vh"}}>It's slow because it's free :)</p>)
   return (
     <body>
       <Navbar>

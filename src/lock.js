@@ -21,13 +21,13 @@ export default function Lock() {
     function handlePass(event){
         setPass(event.target.value);
     }
-    const validate=()=>{  //function to validate username and pass
+    const validate=(event)=>{ //function to validate username and pass
+        event.preventDefault();
         if(name==="pclubsecy"&&pass==="pclubsecy"){
           //if username and password are correct, route to Mods page  
           navigate('/Mods');
         }
-        else{
-          //else give an error
+        else{//else give an error
             window.alert("Incorrect Username/Password!");
             setName('');  //setting the fields to blank for another try
             setPass('');

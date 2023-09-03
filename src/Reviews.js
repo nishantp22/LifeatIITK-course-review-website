@@ -5,9 +5,9 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function Reviews({reviewCount,setReviewCount}) {
+export default function Reviews({reviewCount,setReviewCount,courses}) {
   const location=useLocation();
-  const course=location.state;
+  const course=courses[location.state-1];
   const [name,setName]=useState('');
   const [prof,setProf]=useState('');
   const [year,setYear]=useState('');
@@ -42,7 +42,6 @@ export default function Reviews({reviewCount,setReviewCount}) {
       "Teaching_Style":teaching,
       "Satisfaction":satisfaction
     }
-    console.log(review);
     async function postReview(){
       try {
         const response = await axios.post('https://lifeatiitk.onrender.com/submitReview', review);
@@ -57,7 +56,7 @@ export default function Reviews({reviewCount,setReviewCount}) {
     setName(''); setProf(''); setYear(''); setGrading(''); setDifficulty(''); setWorkload(''); setTeaching(''); setSatisfaction('');
     const newReviewCount=reviewCount+1;
     setReviewCount(newReviewCount);
-    window.location.reload();
+    // window.location.reload();
   }
 
   return (
@@ -66,7 +65,7 @@ export default function Reviews({reviewCount,setReviewCount}) {
       </Navbar>
             <div class="PageHeading">
               <p>{course.name}</p>
-              <p id="smallHeading">{course.description}</p>
+              <p id="smallHeading">{course.title}</p>
             </div>          
         <div class="r">
             {course.reviews.map((review) => (
