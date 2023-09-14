@@ -4,7 +4,7 @@ const bodyParser=require("body-parser")
 const mongoose=require("mongoose")
 const port=3000
 const cors = require('cors');
-mongoose.connect("mongodb+srv://nishantpandey3910:Nishant!!!!@cluster0.xejetfu.mongodb.net/lifeatiitk")
+mongoose.connect("mongodb+srv://nishantpandey3910:Nishant!!!!@cluster0.tefvlhs.mongodb.net/lifeatiitk")
 const coursesSchema= new mongoose.Schema({
     name: String,
     title: String,
