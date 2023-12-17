@@ -11,8 +11,8 @@ This project is a web application where IITK students can post reviews about var
 
 ## Installation
 
-- Clone the repository: `git clone <repository-url>`
-- Navigate to the project directory: `cd <project-folder>`
+- Clone the repository: `git clone https://github.com/nishantp22/LifeatIITK-course-review-website.git`
+- Navigate to the project directory: `cd Lifeatiitk-course-review-website`
 - Install dependencies: `npm install`
 
 ## Usage
